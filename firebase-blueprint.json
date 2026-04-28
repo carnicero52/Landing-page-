@@ -1,0 +1,53 @@
+{
+  "entities": {
+    "Config": {
+      "title": "Configuración del sitio",
+      "description": "Datos de configuración del sitio",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "whatsappNumber": { "type": "string" },
+        "whatsappMessage": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" }
+      },
+      "required": ["title", "description", "whatsappNumber", "whatsappMessage", "email", "address"]
+    },
+    "FAQItem": {
+      "title": "Pregunta frecuente",
+      "description": "Pregunta y respuesta para el chatbot",
+      "type": "object",
+      "properties": {
+        "question": { "type": "string" },
+        "answer": { "type": "string" }
+      },
+      "required": ["question", "answer"]
+    },
+    "Service": {
+      "title": "Servicio",
+      "description": "Servicios ofrecidos",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "icon": { "type": "string" }
+      },
+      "required": ["title", "description", "icon"]
+    }
+  },
+  "firestore": {
+    "settings/{configId}": {
+      "schema": "Config",
+      "description": "Configuración global"
+    },
+    "faqs/{faqId}": {
+      "schema": "FAQItem",
+      "description": "Preguntas frecuentes"
+    },
+    "services/{serviceId}": {
+      "schema": "Service",
+      "description": "Servicios"
+    }
+  }
+}
